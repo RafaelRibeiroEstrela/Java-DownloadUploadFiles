@@ -10,66 +10,77 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_arquivo")
-public class Arquivo implements Serializable{
+@Table(name = "tb_archive")
+public class Archive implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nome;
-	private String tipo;
-	private String diretorio;
+	private String name;
+	private String type;
+	private String path;
 	
-	public Arquivo() {
+	public Archive() {
 		
 	}
 
-	public Arquivo(Long id, String nome, String tipo, String diretorio) {
+
+	public Archive(Long id, String name, String type, String path) {
 		super();
 		this.id = id;
-		this.nome = nome;
-		this.tipo = tipo;
-		this.diretorio = diretorio;
+		this.name = name;
+		this.type = type;
+		this.path = path;
 	}
+
 
 	public Long getId() {
 		return id;
 	}
 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getTipo() {
-		return tipo;
+
+	public String getType() {
+		return type;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public String getDiretorio() {
-		return diretorio;
+
+	public String getPath() {
+		return path;
 	}
 
-	public void setDiretorio(String diretorio) {
-		this.diretorio = diretorio;
+
+	public void setPath(String path) {
+		this.path = path;
 	}
+
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -79,15 +90,15 @@ public class Arquivo implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Arquivo other = (Arquivo) obj;
+		Archive other = (Archive) obj;
 		return Objects.equals(id, other.id);
 	}
 
+
 	@Override
 	public String toString() {
-		return "Arquivo [id=" + id + ", nome=" + nome + ", tipo=" + tipo + ", diretorio=" + diretorio + "]";
+		return "Archive [id=" + id + ", name=" + name + ", type=" + type + ", path=" + path + "]";
 	}
-	
-	
+		
 
 }
