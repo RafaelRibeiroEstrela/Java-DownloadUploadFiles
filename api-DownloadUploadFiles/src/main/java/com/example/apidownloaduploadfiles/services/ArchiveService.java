@@ -17,7 +17,6 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.apidownloaduploadfiles.config.AppInfo;
 import com.example.apidownloaduploadfiles.models.Archive;
 import com.example.apidownloaduploadfiles.models.dto.ArchiveDownloadDTO;
 import com.example.apidownloaduploadfiles.repositories.ArchiveRepository;
@@ -28,7 +27,7 @@ public class ArchiveService {
 	@Autowired
 	private ArchiveRepository archiveRepository;
 
-	private final String PATH_OF_FILES = AppInfo.getCurrentWorkingDirectory() + File.separator + "files";
+	private final String PATH_OF_FILES = System.getProperty("user.dir") + File.separator + "files";
 
 	public void save(MultipartFile[] files) throws IOException {
 		for (MultipartFile file : files) {
